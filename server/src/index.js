@@ -10,7 +10,8 @@ import dbConnect from '../dbConnect.js'
 
 const app = express();
 
-dbConnect();
+dbConnect(); // this generates a connection to our server
+
 
 app.use(express.json()); // this middleware allows for all data being sent from the FrontEnd, to be converted to JSON. We use this as this gives us data from the FrontEnd in an easy-to-understand manner
 app.use(cors());
@@ -24,10 +25,6 @@ app.use((req, res, next) => {
     next();
   });
 
-// mongoose.connect(
-//     "mongodb+srv://developingadan:QeQna9G5isLAXVRd@demo-clust.09uyeul.mongodb.net/players-db?retryWrites=true&w=majority"
-// ) 
-// this generates a connection to our server
 
 
 const port = process.env.PORT || 8081;
