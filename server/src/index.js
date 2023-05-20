@@ -1,5 +1,7 @@
 // this is how we start our server
 
+import dotenv from "dotenv";
+
 import express from 'express' // express services a framework to create our API. it serves our frontend
 import cors from 'cors' // a library that sets up rules that allows communication between frontend and backend
 import mongoose from 'mongoose' // a ____ for MongoDB. This sets up the DB management system, it allows us to write queries and other communications to our DB in a simpler way
@@ -8,9 +10,12 @@ import { userRouter } from '../routes/users.js' // since we are using "import" n
 import { playersRouter } from '../routes/players.js' // since we are using "import" notation, we have to include ext (Ex. "users.js" instead of just "users")
 import dbConnect from '../dbConnect.js'
 
+dotenv.config();
+
 const app = express();
 
-dbConnect(); // this generates a connection to our server
+dbConnect();
+// this generates a connection to our server
 
 
 app.use(express.json()); // this middleware allows for all data being sent from the FrontEnd, to be converted to JSON. We use this as this gives us data from the FrontEnd in an easy-to-understand manner
